@@ -428,3 +428,4 @@ FodyWeavers.xsd
 *.msm
 *.msp
 OpenAITest/Properties/launchSettings.json
+/Workflows/Properties
