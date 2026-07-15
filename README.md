@@ -1,6 +1,6 @@
 # 🤖 labIA
 
-> Projeto experimental de integração entre **IA** e **.NET**, utilizando OpenAI para criar workflows de automação inteligente.
+> Projeto experimental de integração entre **IA** e **.NET**, utilizando Gemini para criar workflows de automação inteligente.
 
 ---
 
@@ -14,7 +14,7 @@ Este projeto demonstra o uso de inteligência artificial com a plataforma .NET p
 
 Explorar e implementar soluções que combinam:
 
-- 🧠 Inteligência Artificial (OpenAI)
+- 🧠 Inteligência Artificial (Gemini)
 - ⚙️ Workflows de processamento
 - 🔀 Lógica de decisão automatizada
 - 💻 .NET 10 como base tecnológica
@@ -36,14 +36,21 @@ Explorar e implementar soluções que combinam:
 
 ```
 labIA/
-├── OpenAITest/
-│   ├── Program.cs              # Ponto de entrada principal
+├── Comum/
+│   ├── GeminiChat.cs            # Client Gemini compartilhado
+│   └── Models/                  # DTOs (DietaMacro, DietaRefeicao, Usuario)
+├── SimpleChat/
+│   ├── Program.cs               # Chamadas diretas ao chat (sem histórico)
 │   └── ...
-├── Workflow/
+├── MemoryChat/
+│   ├── Program.cs               # Chat com histórico de conversa em memória
+│   └── ChatWithMemory.cs
+├── Workflows/
+│   ├── Program.cs               # Ponto de entrada principal (workflow multi-agente)
 │   ├── Workflows/
 │   │   ├── DietaWorkflow.cs
 │   │   └── NutricionistaWorkflow.cs
-│   └── ...
+│   └── Executors/
 ├── README.md
 └── .gitignore
 ```
@@ -56,7 +63,7 @@ labIA/
 
 - ✅ .NET 10 ou superior
 - ✅ Visual Studio Community 2026+
-- ✅ Chave de API da OpenAI configurada
+- ✅ Chave de API do Gemini configurada
 
 ### Passos para Executar
 
@@ -67,14 +74,14 @@ labIA/
    cd labIA
    ```
 
-2. **Configure suas credenciais da OpenAI:**
+2. **Configure suas credenciais do Gemini:**
 
-   Defina a variável de ambiente `OPENAI_API_KEY` com sua chave de API.
+   Defina a variável de ambiente `GEMINI_API_KEY` com sua chave de API.
 
 3. **Execute o projeto:**
 
    ```powershell
-   dotnet run --project OpenAITest
+   dotnet run --project Workflows
    ```
 
 4. **Escolha uma opção:**
@@ -89,7 +96,7 @@ labIA/
 | Tecnologia | Descrição |
 |------------|-----------|
 | **.NET 10** | Framework base moderno |
-| **OpenAI API** | Integração com modelos de IA |
+| **Gemini API** | Integração com modelos de IA |
 | **C#** | Linguagem principal |
 
 ---

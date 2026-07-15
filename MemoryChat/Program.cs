@@ -30,9 +30,9 @@ internal class Program
 
         var respostaDuvida = await ChatWithMemory.ChatWithHistoryAsync<string>(
             "123",
-            $"Tenho a seguinte dúvida: {duvida}");
+            $"Tenho a seguinte dúvida: {duvida}",
+            jsonResponse: false);
 
         Console.WriteLine(respostaDuvida);
     }
-}
 }

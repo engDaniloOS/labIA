@@ -7,7 +7,7 @@ namespace MemoryChat
     {
         private static readonly Dictionary<string, List<ChatMessage>> _sessionHistories = [];
 
-        public static async Task<T?> ChatWithHistoryAsync<T>(string sessionId, string userChat, string? systemRole = null)
+        public static async Task<T?> ChatWithHistoryAsync<T>(string sessionId, string userChat, string? systemRole = null, bool jsonResponse = true)
         {
             List<ChatMessage> history = GetOrBuildSessionHistory(sessionId, systemRole);
 
@@ -18,7 +18,7 @@ namespace MemoryChat
             });
 
             var chatClient = GeminiChat.BuildClient();
-            var response = await chatClient.GetResponseAsync<T>(history, GeminiChat.GetDefaultChatOptions());
+            var response = await chatClient.GetResponseAsync<T>(history, GeminiChat.GetDefaultChatOptions(jsonResponse));
 
             history.Add(new ChatMessage
             {

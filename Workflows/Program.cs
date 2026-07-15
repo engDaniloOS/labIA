@@ -7,7 +7,7 @@ internal class Program
         Console.WriteLine("Digite a opção, sendo 1 para o workflow sequencial e 2 para o workflow com camada de decisão ");
         var opcao = Console.ReadLine();
 
-        if (opcao.Equals("sair"))
+        if (opcao is null || opcao.Equals("sair"))
             return;
         else if (opcao.Equals("1"))
             await DietaWorkflow.Execute();
