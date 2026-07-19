@@ -4,6 +4,7 @@
   </Folder>
   <Project Path="Comum/Comum.csproj" Id="ba4af06c-12fd-43e8-b397-a9852e9bfe77" />
   <Project Path="MemoryChat/MemoryChat.csproj" Id="070641fd-32b9-4e97-ac88-b145e683c6ae" />
+  <Project Path="RagChat/RagChat.csproj" />
   <Project Path="SimpleChat/SimpleChat.csproj" Id="dcad5d30-3526-46a0-8f28-414b1ca793dd" />
   <Project Path="Workflows/Workflow.csproj" />
 </Solution>

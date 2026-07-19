@@ -51,6 +51,13 @@ labIA/
 │   │   ├── DietaWorkflow.cs
 │   │   └── NutricionistaWorkflow.cs
 │   └── Executors/
+├── RagChat/
+│   ├── Program.cs               # Indexa a base e faz perguntas via RAG
+│   ├── KnowledgeBase/           # Documentos .txt usados como base de conhecimento
+│   ├── TextChunker.cs           # Divide os documentos em trechos (chunking)
+│   ├── DocumentChunk.cs         # Registro indexado no vector store
+│   ├── RagIndex.cs              # Indexação (chunking + embeddings + vector store)
+│   └── RagQuery.cs              # Retrieval + geração da resposta (RAG)
 ├── README.md
 └── .gitignore
 ```
@@ -89,6 +96,14 @@ labIA/
    - Digite `2` → Workflow com Camada de Decisão
    - Digite `sair` → Encerrar aplicação
 
+5. **Para rodar o exemplo de RAG (Retrieval-Augmented Generation):**
+
+   ```powershell
+   dotnet run --project RagChat
+   ```
+
+   O projeto indexa os documentos de `RagChat/KnowledgeBase/` (textos curtos sobre nutrição) em um vector store em memória e permite fazer perguntas em linguagem natural; a resposta é gerada com base apenas nos trechos recuperados (mostrados no console antes da resposta final).
+
 ---
 
 ## 💻 Tecnologias
@@ -96,7 +111,8 @@ labIA/
 | Tecnologia | Descrição |
 |------------|-----------|
 | **.NET 10** | Framework base moderno |
-| **Gemini API** | Integração com modelos de IA |
+| **Gemini API** | Integração com modelos de IA (chat e embeddings) |
+| **Microsoft.Extensions.VectorData** | Abstração de vector store, usada no exemplo de RAG |
 | **C#** | Linguagem principal |
 
 ---
@@ -123,6 +139,7 @@ Digite a opção, sendo 1 para o workflow sequencial e 2 para o workflow com cam
 - 🔄 Padrões de workflows em C#
 - ⏳ Processamento assíncrono (`async/await`)
 - 🏗️ Arquitetura baseada em camadas de decisão
+- 📚 RAG (Retrieval-Augmented Generation): chunking, embeddings e busca por similaridade em vector store
 
 ---
 
